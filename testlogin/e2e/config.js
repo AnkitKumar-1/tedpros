@@ -1,5 +1,5 @@
 
-var jasmineReporters = require('jasmine-reporters');
+var jasmineReporters = require('jasmine-spec-reporter');
 var htmlReporter = require('protractor-html-reporter-2');
 var fs = require('fs-extra');
 var path = require('path');
