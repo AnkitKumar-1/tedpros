@@ -16,8 +16,8 @@ exports.config = {
        'browserName': 'chrome'
     },
 	
-   specs: ['e2e/testspec.js'],
-    
+	specs: ['e2e/testspec.js'],
+    services: ['selenium-standalone'],
     //suites:
     //{
     //    smoke: ['F:/Jasmine/CRM/ClientCompany/clientcompanyspec.js', 'F:/Jasmine/CRM/ClientCompany/Addanotherclientspec.js', 'F:/Jasmine/CRM/ClientCompany/editclientcompanyspec.js', 'F:/Jasmine/CRM/ClientCompany/clientcompanysearchspec.js', 'F:/Jasmine/CRM/ClientCompany/Clientresetspec.js',
