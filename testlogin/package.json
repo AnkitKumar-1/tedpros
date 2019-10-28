@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "pree2e": "webdriver-manager update --standalone false --gecko false",
+    "e2e": "ng e2e --protractorConfig=e2e/protractor.conf.js",
     "sonar": "sonar-scanner"
   },
   "private": true,
@@ -22,6 +23,7 @@
     "@angular/platform-browser-dynamic": "^7.0.4",
     "@angular/router": "^7.0.4",
     "core-js": "^2.6.10",
+    "jasmine": "^3.5.0",
     "rxjs": "~6.3.3",
     "zone.js": "^0.8.29"
   },
@@ -44,7 +46,7 @@
     "protractor": "^5.4.2",
     "sonar-scanner": "^3.1.0",
     "ts-node": "~7.0.0",
-    "tslint": "~5.11.0",
-    "typescript": "~3.1.1"
+    "tslint": "^5.11.0",
+    "typescript": "^3.6.4"
   }
 }
