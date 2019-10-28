@@ -1,7 +1,7 @@
-var Excel = require('C:/Users/rajivsingh/Music/Ankita FL/sampleproject/sample testlogin/node_modules/exceljs');
+var Excel = require('../node_modules/exceljs');
 
 var inboundWorkbook = new Excel.Workbook();
-inboundWorkbook.xlsx.readFile("C:/Users/rajivsingh/Music/Ankita FL/sampleproject/E_TO_E/sampletest/Book1.xlsx").then(function() {
+inboundWorkbook.xlsx.readFile("Book1.xlsx").then(function() {
  var inboundWorksheet = inboundWorkbook.getWorksheet(1);
  browser.waitForAngularEnabled(false);
 

@@ -12,14 +12,12 @@ exports.config = {
 
     seleniumAddress: 'http://localhost:4444/wd/hub',
 
-    //capabilities: {
-    //    'browserName': 'chrome',
-    //    'shardTestFiles': true,
-    //    'maxInstances': 2
-    //},
+    capabilities: {
+		'browserName': 'chrome'
+	},
 
 
-   specs: ['C:/Users/rajivsingh/Music/Ankita FL/sampleproject/E_TO_E/sampletest/config.js'],
+   specs: ['testspec.js'],
     
     //suites:
     //{
