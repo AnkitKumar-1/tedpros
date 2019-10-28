@@ -1,5 +1,5 @@
 
-var jasmineReporters = require('jasmine-spec-reporter');
+var jasmineReporters = require('jasmine-reporters');
 var htmlReporter = require('protractor-html-reporter-2');
 var fs = require('fs-extra');
 var path = require('path');
@@ -13,11 +13,10 @@ exports.config = {
     seleniumAddress: 'http://localhost:4444/wd/hub',
 
     capabilities: {
-		'browserName': 'chrome'
-	},
-
-
-   specs: ['testspec.js'],
+       'browserName': 'chrome'
+    },
+	
+   specs: ['e2e/testspec.js'],
     
     //suites:
     //{
@@ -51,17 +50,17 @@ exports.config = {
         // Angular sync for non angular apps
         browser.ignoreSynchronization = true;
 
-        fs.emptyDir('./reports/xml/', function (err) {
+        fs.emptyDir('e2e/reports/xml/', function (err) {
             // console.log(err);
         });
 
-        fs.emptyDir('./reports/screenshots/', function (err) {
+        fs.emptyDir('e2e/reports/screenshots/', function (err) {
             //console.log(err);
         });
 
         jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
             consolidateAll: true,
-            savePath: './reports/xml/',
+            savePath: 'e2e/reports/xml/',
             filePrefix: 'xmlresults'
         }));
 
@@ -75,7 +74,7 @@ exports.config = {
                     var browserName = caps.get('browserName');
 
                     browser.takeScreenshot().then(function (png) {
-                        var stream = fs.createWriteStream('./reports/screenshots/' + browserName + '-' + result.fullName + '.png');
+                        var stream = fs.createWriteStream('e2e/reports/screenshots/' + browserName + '-' + result.fullName + '.png');
                         stream.write(new Buffer(png, 'base64'));
                         stream.end();
                     });
@@ -98,16 +97,16 @@ exports.config = {
                 reportTitle: 'angular test project',
                 // console.log('dir ', path.join(__dirname, '../../'));
                 //outputPath: 'F:/Jasmine/CRM/vendorcompany/reports',
-                outputPath: './reports',
+                outputPath: 'e2e/reports',
                 outputFilename: 'ProtractorTestReport',
-                screenshotPath: './reports/screenshots',
+                screenshotPath: 'e2e/reports/screenshots',
                 testBrowser: browserName,
                 browserVersion: browserVersion,
                 modifiedSuiteName: false,
                 screenshotsOnlyOnFailure: false,
                 testPlatform: platform
             };
-            new htmlReporter().from('./reports/xml/xmlresults.xml', testConfig);
+            new htmlReporter().from('e2e/reports/xml/xmlresults.xml', testConfig);
         });
     },
 
