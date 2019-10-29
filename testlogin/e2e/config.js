@@ -12,7 +12,7 @@ exports.config = {
 
     seleniumAddress: 'http://localhost:4444/wd/hub',
 
-    capabilities: { browserName: 'chrome', chromeOptions: { args: [ "--headless", "--disable-gpu", "--window-size=800,600"] } },
+    capabilities: { browserName: 'chrome' },
 	
 	specs: ['e2e/testspec.js'],
     //services: ['selenium-standalone'],
