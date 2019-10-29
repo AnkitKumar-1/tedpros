@@ -14,6 +14,14 @@ exports.config = {
 
     capabilities: {
        'browserName': 'chrome'
+		chromeOptions: {
+		   args: [
+			  '--headless',
+			  '--disable-gpu',
+			  '--no-sandbox',
+			  '--remote-debugging-port=9222',
+			]
+		},
     },
 	
 	specs: ['e2e/testspec.js'],
