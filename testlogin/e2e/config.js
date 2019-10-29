@@ -14,7 +14,7 @@ exports.config = {
 
     capabilities: { browserName: 'chrome', chromeOptions: { args: [ "--headless", "--disable-gpu", "--window-size=800,600"] } }
 	
-	specs: ['C:/Progra~2/Jenkins/workspace/Angular-Pipeline/testlogin/e2e/testspec.js'],
+	specs: ['C:\Progra~2\Jenkins\workspace\Angular-Pipeline\testlogin\e2e\testspec.js'],
     //services: ['selenium-standalone'],
     //suites:
     //{
@@ -48,17 +48,17 @@ exports.config = {
         // Angular sync for non angular apps
         browser.ignoreSynchronization = true;
 
-        fs.emptyDir('C:/Progra~2/Jenkins/workspace/Angular-Pipeline/testlogin/e2e/reports/xml/', function (err) {
+        fs.emptyDir('C:\Progra~2\Jenkins\workspace\Angular-Pipeline\testlogin\e2e\reports/xml/', function (err) {
             // console.log(err);
         });
 
-        fs.emptyDir('C:/Progra~2/Jenkins/workspace/Angular-Pipeline/testlogin/e2e/reports/screenshots/', function (err) {
+        fs.emptyDir('C:\Progra~2\Jenkins\workspace\Angular-Pipeline\testlogin\e2e\reports/screenshots/', function (err) {
             //console.log(err);
         });
 
         jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
             consolidateAll: true,
-            savePath: 'C:/Progra~2/Jenkins/workspace/Angular-Pipeline/testlogin/e2e/reports/xml/',
+            savePath: 'C:\Progra~2\Jenkins\workspace\Angular-Pipeline\testlogin\e2e\reports/xml/',
             filePrefix: 'xmlresults'
         }));
 
@@ -72,7 +72,7 @@ exports.config = {
                     var browserName = caps.get('browserName');
 
                     browser.takeScreenshot().then(function (png) {
-                        var stream = fs.createWriteStream('C:/Progra~2/Jenkins/workspace/Angular-Pipeline/testlogin/e2e/reports/screenshots/' + browserName + '-' + result.fullName + '.png');
+                        var stream = fs.createWriteStream('C:\Progra~2\Jenkins\workspace\Angular-Pipeline\testlogin\e2e\reports\screenshots\' + browserName + '-' + result.fullName + '.png');
                         stream.write(new Buffer(png, 'base64'));
                         stream.end();
                     });
@@ -95,16 +95,16 @@ exports.config = {
                 reportTitle: 'angular test project',
                 // console.log('dir ', path.join(__dirname, '../../'));
                 //outputPath: 'F:/Jasmine/CRM/vendorcompany/reports',
-                outputPath: 'C:/Progra~2/Jenkins/workspace/Angular-Pipeline/testlogin/e2e/reports',
+                outputPath: 'C:\Progra~2\Jenkins\workspace\Angular-Pipeline\testlogin\e2e\reports',
                 outputFilename: 'ProtractorTestReport',
-                screenshotPath: 'C:/Progra~2/Jenkins/workspace/Angular-Pipeline/testlogin/e2e/reports/screenshots',
+                screenshotPath: 'C:\Progra~2\Jenkins\workspace\Angular-Pipeline\testlogin\e2e\reports\screenshots',
                 testBrowser: browserName,
                 browserVersion: browserVersion,
                 modifiedSuiteName: false,
                 screenshotsOnlyOnFailure: false,
                 testPlatform: platform
             };
-            new htmlReporter().from('C:/Progra~2/Jenkins/workspace/Angular-Pipeline/testlogin/e2e/reports/xml/xmlresults.xml', testConfig);
+            new htmlReporter().from('C:\Progra~2\Jenkins\workspace\Angular-Pipeline\testlogin\e2e\reports\xml\xmlresults.xml', testConfig);
         });
     },
 
