@@ -14,7 +14,7 @@ exports.config = {
 
     capabilities: { browserName: 'chrome', chromeOptions: { args: [ "--headless", "--disable-gpu", "--window-size=800,600"] } },
 	
-	specs: ['e2e/testspec.js']
+	specs: ['e2e/testspec.js'],
     //services: ['selenium-standalone'],
     //suites:
     //{
