@@ -1,7 +1,7 @@
-var Excel = require('/node_modules/exceljs');
+var Excel = require('C:/Progra~2/Jenkins/workspace/Angular-Pipeline/testlogin/node_modules/exceljs');
 
 var inboundWorkbook = new Excel.Workbook();
-inboundWorkbook.xlsx.readFile("/e2e/Book1.xlsx").then(function() {
+inboundWorkbook.xlsx.readFile("C:/Progra~2/Jenkins/workspace/Angular-Pipeline/testlogin/e2e/Book1.xlsx").then(function() {
  var inboundWorksheet = inboundWorkbook.getWorksheet(1);
  browser.waitForAngularEnabled(false);
 
