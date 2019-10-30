@@ -4,6 +4,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AuthServiceStub } from 'src/app/mocks/AuthServiceStub';
+import { AuthenticationService } from '../_services/authentication.service';
+import {  ActivatedRouteStub} from 'src/app/mocks/ActivatedRouteStub';
+
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { FormsModule, ReactiveFormsModule, NgForm } from '@angular/forms';
 
@@ -13,16 +18,20 @@ describe('LoginComponent', () => {
 
     let component: LoginComponent;
     let fixture: ComponentFixture<LoginComponent>;
+    const AuthenticationServiceStub = new AuthServiceStub();
+    const activatedRouteStub = new ActivatedRouteStub();
     beforeEach(async(() => {
         TestBed.configureTestingModule({
           declarations: [LoginComponent],
           providers: [
-
+            { provide: AuthenticationService, useValue: AuthenticationServiceStub },
+            { provide: ActivatedRoute, useValue: activatedRouteStub },
           ],
           imports: [
             BrowserModule,
             HttpClientModule,
             ReactiveFormsModule,
+            RouterTestingModule
            
           ]
         })
@@ -33,7 +42,13 @@ describe('LoginComponent', () => {
         fixture = TestBed.createComponent(LoginComponent);
         component = fixture.componentInstance;
         // fixture.detectChanges();
-      
+        localStorage.setItem('currentUser', JSON.stringify({
+          firstName: "saikumar",
+          id: 1,
+          lastName: "barla",
+          token: "fake-jwt-token",
+          username: "admin"
+        }))
       });
 
       it('should create', () => {
@@ -43,6 +58,17 @@ describe('LoginComponent', () => {
       it('#ngOnInit', fakeAsync(()=>{
           component.ngOnInit();
           tick();
+          // expect(component.returnUrl).toBe()
+      }));
+      it('#f', fakeAsync(()=>{
+        // component.f();
+        tick();
+      }))
+
+      it('#onSubmit', fakeAsync(()=>{
+        component.onSubmit();
+        tick();
+        // component.authenticationService(l)
       }))
     
 });
